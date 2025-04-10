@@ -23,11 +23,5 @@ pipeline {
             steps{
                 "node server"
             }
-        }
-        stage ("add a big "MILESTONE 2""){
-            steps{
-                sh 'echo "MILESTONE 2"'
-            }
-        }
     }
 }
