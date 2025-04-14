@@ -29,7 +29,7 @@ pipeline{
         }
         stage ("deploy to render"){
             steps{
-                "script{
+                script{
                     sh "curl -X POST ${RENDER_DEPLOY_HOOK}"
                 }
             }
@@ -39,7 +39,8 @@ pipeline{
         always {
             slackSend(channel: '#phyllis-ip1',
             color: COLOR_MAP[currentBuild.currentResult],
-            message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n live site at: ${LIVE_SITE}")"
-            }
+            message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n live site at: ${LIVE_SITE}")
+        }
     }
+
 }
